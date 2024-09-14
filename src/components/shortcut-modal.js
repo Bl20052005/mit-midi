@@ -4,6 +4,7 @@
 import React, { useState } from "react";
 import { Modal, Box, Typography, Button } from "@mui/material";
 import ShortcutPopupModal from "./shortcut-popup-modal";
+import { MdOutlineSwitchAccessShortcut } from "react-icons/md";
 
 const style = {
   position: "absolute",
@@ -19,7 +20,7 @@ const style = {
   alignItems: "center",
   overflow: "auto",
   padding: "10px 0 10px 0",
-  borderRadius: "10px"
+  borderRadius: "10px",
 };
 
 const ShortcutModal = ({ children }) => {
@@ -44,18 +45,20 @@ const ShortcutModal = ({ children }) => {
     "subtonic chord": "shift + 7",
     "leading note chord": "shift + 7",
     "select all": "control + a",
-    "undo": "control + z",
-    "redo": "control + y",
+    undo: "control + z",
+    redo: "control + y",
     "shift up pitch": "control + arrowup",
     "shift down pitch": "control + arrowdown",
     "AI assistance": "enter",
-    "delete": "backspace",
-    
+    delete: "backspace",
   });
 
   return (
     <>
-      <Button onClick={handleOpen}>Open modal</Button>
+      <MdOutlineSwitchAccessShortcut
+        onClick={handleOpen}
+        className="cursor-pointer w-[27px] h-[27px] pt-[4px] fill-[#EEEEEE]"
+      />
       <Modal
         open={open}
         onClose={handleClose}
@@ -63,7 +66,7 @@ const ShortcutModal = ({ children }) => {
         aria-describedby="modal-modal-description"
         style={{ zIndex: 1 }}
       >
-        <Box sx={style}>
+        <Box sx={style} style={{ backgroundColor: "#E2E8F0" }}>
           <div className="h-full w-[90%] flex flex-col gap-3">
             {Object.keys(bindings).map((item, i) => (
               <div className="flex justify-center w-full">

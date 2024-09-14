@@ -1,8 +1,10 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import ShortcutModal from "./shortcut-modal";
 
 const Header = () => {
+
   // Event handlers for each icon
   const handleRestartClick = () => {
     console.log("Restart clicked");
@@ -64,6 +66,7 @@ const Header = () => {
           onClick={handleSettingsClick}
           className="cursor-pointer"
         />
+        <ShortcutModal />
       </div>
 
       {/* Title */}

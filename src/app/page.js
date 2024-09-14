@@ -3,6 +3,7 @@ import { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ShortcutModal from "@/components/shortcut-modal";
+import SynthPiano from "@/components/playback";
 
 export default function Home() {
   const [tempo, setTempo] = useState(120);
@@ -12,8 +13,7 @@ export default function Home() {
   return (
     <div className="flex flex-col h-screen w-screen bg-gray-300">
       <Header />
-      {/* <SynthPiano />
-      <ShortcutModal /> */}
+      {/* <SynthPiano /> */}
 
       {/* Main Grid, add the piano UI here */}
       <div className="flex-grow flex justify-center items-center">
