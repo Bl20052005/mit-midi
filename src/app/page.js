@@ -1,12 +1,17 @@
+"use client";
 import Image from "next/image";
 import { Button, ButtonGroup } from "@nextui-org/button";
 import QuantModal from "@/components/modal";
-import {Input} from "@nextui-org/input";
+import { Input } from "@nextui-org/input";
+import { useState } from "react";
+import PromptForm from "@/components/PromptForm";
+
 
 export default function Home() {
+  const [result, setResult] = useState(""); // Initially set result to an empty string
+
   return (
-    <div className=" min-h-screen min-w-[100%]">
-      {/* <Button /> */}
+    <div className="min-h-screen min-w-[100%]">
       <main>
         <div className="bg-gray-300 h-screen flex flex-col">
           {/* Top section */}
@@ -33,11 +38,35 @@ export default function Home() {
 
           {/* Bottom section */}
           <div className="bg-blue-900 p-4 text-white text-center">
-          
-          <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
-            <Input type="Email" label="Enter Your Prompt" />
+            <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
+              <Input type="Email" label="Enter Your Prompt" />
+            </div>
           </div>
-          </div>
+
+          <PromptForm 
+            onSubmit={async(prompt) => {
+              const response = await fetch("/api/chatgpt", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  prompt,
+                }),
+              });
+
+              const res = await response.json();
+              const cleanResult = JSON.parse(res.result); // Clean up the string
+              setResult(cleanResult); // Update result with the clean string
+
+            }}
+          />
+
+
+
+
+          {/* Render the result in a paragraph */}
+          <p className="text-white mt-4">{result}</p>
         </div>
       </main>
     </div>
