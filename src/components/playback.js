@@ -19,6 +19,8 @@ export default function SynthPiano() {
       synth.current = new Tone.PolySynth(Tone.Synth).toDestination();
     const now = Tone.now();
 
+    Tone.context.resume();
+
     // Trigger C4, E4, G4 to simulate a chord
     midiData.map((note) => {
       synth.current.triggerAttackRelease(
@@ -36,7 +38,20 @@ export default function SynthPiano() {
     <div>
       <UploadMidiFile midiData={midiData} setMidiData={setMidiData} />
       <button onClick={() => Tone.start().then(playPiano)}>Play Piano</button>
-      <button onClick={() => synth.current.releaseAll()}>stop</button>
+      <button
+        onClick={() => {
+          Tone.Transport.cancel();
+          Tone.Transport.stop();
+          Tone.getTransport().cancel();
+          Tone.getTransport().stop();
+
+          // Manually release any synths that are playing
+          if (synth.current) synth.current.triggerRelease();
+        //   Tone.context.close();
+        }}
+      >
+        stop
+      </button>
     </div>
   );
 }
