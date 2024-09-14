@@ -4,14 +4,13 @@ import { IoMdSend } from "react-icons/io";
 import MultiSelect from "./multi-select";
 import { useState } from "react";
 
-const options = [
-  { value: "javascript", label: "JavaScript" },
-  { value: "react", label: "React" },
-  { value: "css", label: "CSS" },
-  { value: "html", label: "HTML" },
-];
-
 function AiSideBar() {
+  const options = [
+    { value: "javascript", label: "JavaScript" },
+    { value: "react", label: "React" },
+    { value: "css", label: "CSS" },
+    { value: "html", label: "HTML" },
+  ];
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [details, setDetails] = useState("");
 

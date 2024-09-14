@@ -6,11 +6,13 @@ import AiSideBar from "@/components/ai-assistant";
 import { FaStop } from "react-icons/fa";
 import { FaPlay } from "react-icons/fa";
 import SynthPiano from "@/components/playback";
+import ShortcutModal from "@/components/shortcut-modal";
 
 export default function Home() {
   return (
     <div className=" min-h-screen min-w-[100%]">
       <SynthPiano />
+      <ShortcutModal />
       {/* <Button /> */}
       <main>
         <div className="bg-gray-300 h-screen flex flex-col">
