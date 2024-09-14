@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Button, ButtonGroup } from "@nextui-org/button";
 import QuantModal from "@/components/modal";
+import {Input} from "@nextui-org/input";
 
 export default function Home() {
   return (
@@ -32,8 +33,10 @@ export default function Home() {
 
           {/* Bottom section */}
           <div className="bg-blue-900 p-4 text-white text-center">
-            <p>need help?</p>
-            <p className="text-xs">(will give possible suggestions)</p>
+          
+          <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
+            <Input type="Email" label="Enter Your Prompt" />
+          </div>
           </div>
         </div>
       </main>
