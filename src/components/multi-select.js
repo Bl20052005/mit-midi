@@ -1,10 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Select from "react-select";
 
-export default function MultiSelect({selectedOptions, setSelectedOptions, options}) {
-
+export default function MultiSelect({
+  selectedOptions,
+  setSelectedOptions,
+  options,
+}) {
   const handleChange = (options) => {
     setSelectedOptions(options);
   };
