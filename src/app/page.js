@@ -7,6 +7,7 @@ export default function Home() {
   const [tempo, setTempo] = useState(120);
   const [volume, setVolume] = useState(50); // New state for volume
 
+
   return (
     <div className="flex flex-col h-screen w-screen bg-gray-300">
       <Header />
