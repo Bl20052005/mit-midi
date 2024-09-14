@@ -3,10 +3,14 @@ import { Button, ButtonGroup } from "@nextui-org/button";
 import QuantModal from "@/components/modal";
 import { Input } from "@nextui-org/input";
 import AiSideBar from "@/components/ai-assistant";
+import { FaStop } from "react-icons/fa";
+import { FaPlay } from "react-icons/fa";
+import SynthPiano from "@/components/playback";
 
 export default function Home() {
   return (
     <div className=" min-h-screen min-w-[100%]">
+      <SynthPiano />
       {/* <Button /> */}
       <main>
         <div className="bg-gray-300 h-screen flex flex-col">
@@ -15,12 +19,12 @@ export default function Home() {
             <QuantModal className="bg-blue-200">
               quantization / subdivision
             </QuantModal>
-            <div className="bg-green-500 h-10 w-10 rounded-full"></div>
-            <div className="text-center text-lg">
-              <div className="bg-blue-900 w-64 h-4 mx-auto"></div>
-              <p className="text-xs mt-1">999 bpm</p>
-            </div>
-            <div className="bg-red-500 h-10 w-10 rounded-full"></div>
+            <button className="bg-green-500 h-10 w-10 rounded-full flex justify-center items-center">
+              <FaPlay className="fill-white" />
+            </button>
+            <button className="bg-red-500 h-10 w-10 rounded-full flex justify-center items-center">
+              <FaStop className="fill-white" />
+            </button>
           </div>
 
           {/* Main section */}
