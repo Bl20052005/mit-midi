@@ -1,6 +1,8 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+
+// Importing icons
 import restartIcon from "../assets/icons/restart-icon.png";
 import backIcon from "../assets/icons/back-icon.png";
 import forwardIcon from "../assets/icons/forward-icon.png";
@@ -9,6 +11,7 @@ import shareIcon from "../assets/icons/share-icon.png";
 import infoIcon from "../assets/icons/info-icon.png";
 
 const Header = () => {
+  // Event handlers for each icon
   const handleRestartClick = () => {
     console.log("Restart clicked");
   };
@@ -36,7 +39,7 @@ const Header = () => {
   return (
     <div className="relative w-full h-16 bg-[#666666] border-b border-neutral-100 flex items-center justify-between px-4">
       {/* Left controls */}
-      <div className="flex space-x-4">
+      <div className="flex space-x-4 flex-1">
         <Image
           src={restartIcon}
           alt="Restart"
@@ -71,9 +74,13 @@ const Header = () => {
         />
       </div>
 
-      <div className="font-bold text-white text-xl tracking-wider">M I T I</div>
+      {/* Title */}
+      <div className="font-bold text-white text-xl tracking-wider text-center flex-1">
+        M I T I
+      </div>
 
-      <div className="flex space-x-4">
+      {/* Right controls */}
+      <div className="flex space-x-4 flex-1 justify-end">
         <Image
           src={shareIcon}
           alt="Share"
