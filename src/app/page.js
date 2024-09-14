@@ -8,6 +8,7 @@ import { useState } from "react";
 import PromptForm from "@/components/PromptForm";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import AssistantServer from "@/components/ai-assistant-server";
 
 export default function Home() {
   const [tempo, setTempo] = useState(120);
@@ -18,6 +19,7 @@ export default function Home() {
   return (
     <div className="flex flex-col h-screen w-screen bg-gray-300">
       <Header />
+      <AssistantServer />
       {/* <SynthPiano /> */}
 
       {/* Main Grid, add the piano UI here */}
