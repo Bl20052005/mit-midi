@@ -1,17 +1,17 @@
+"use client";
+
 import Image from "next/image";
+// import QuantModal from "@/components/modal";
 import { Button, ButtonGroup } from "@nextui-org/button";
-import QuantModal from "@/components/modal";
-import {Input} from "@nextui-org/input";
-import { Button, ButtonGroup } from "@nextui-org/button";
-import QuantModal from "@/components/modal";
 import { Input } from "@nextui-org/input";
 import { useState } from "react";
 import PromptForm from "@/components/PromptForm";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const [tempo, setTempo] = useState(120);
   const [volume, setVolume] = useState(50); // New state for volume
-
 
   const [result, setResult] = useState(""); // Initially set result to an empty string
 
