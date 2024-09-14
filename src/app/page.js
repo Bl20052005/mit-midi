@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Button, ButtonGroup } from "@nextui-org/button";
+import QuantModal from "@/components/modal";
 
 export default function Home() {
   return (
@@ -9,7 +10,7 @@ export default function Home() {
         <div className="bg-gray-300 h-screen flex flex-col">
           {/* Top section */}
           <div className="flex justify-between p-4">
-            <Button className="bg-blue-200">quantization / subdivision</Button>
+            <QuantModal className="bg-blue-200">quantization / subdivision</QuantModal>
             <div className="bg-green-500 h-10 w-10 rounded-full"></div>
             <div className="text-center text-lg">
               <div className="bg-blue-900 w-64 h-4 mx-auto"></div>
