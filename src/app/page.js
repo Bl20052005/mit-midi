@@ -1,45 +1,64 @@
-import Image from "next/image";
-import { Button, ButtonGroup } from "@nextui-org/button";
-import QuantModal from "@/components/modal";
-import { Input } from "@nextui-org/input";
-import AiSideBar from "@/components/ai-assistant";
+"use client";
+import { useState } from "react";
+import Header from "../components/Header"; // Adjust the path based on your project structure
 
 export default function Home() {
+  const [tempo, setTempo] = useState(120);
+
   return (
-    <div className=" min-h-screen min-w-[100%]">
-      {/* <Button /> */}
-      <main>
-        <div className="bg-gray-300 h-screen flex flex-col">
-          {/* Top section */}
-          <div className="flex justify-between p-4">
-            <QuantModal className="bg-blue-200">
-              quantization / subdivision
-            </QuantModal>
-            <div className="bg-green-500 h-10 w-10 rounded-full"></div>
-            <div className="text-center text-lg">
-              <div className="bg-blue-900 w-64 h-4 mx-auto"></div>
-              <p className="text-xs mt-1">999 bpm</p>
-            </div>
-            <div className="bg-red-500 h-10 w-10 rounded-full"></div>
-          </div>
+    <div className="flex flex-col h-screen w-screen bg-gray-300">
+      {/* Header */}
+      <Header />
 
-          {/* Main section */}
-          <div className="flex-1 flex">
-            {/* Left sidebar */}
-            <AiSideBar />
-
-            {/* Main content */}
-            <div className="flex-1 bg-purple-900"></div>
-          </div>
-
-          {/* Bottom section */}
-          <div className="bg-blue-900 p-4 text-white text-center">
-            <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
-              <Input type="Email" label="Enter Your Prompt" />
-            </div>
-          </div>
+      {/* Main Grid */}
+      <div className="flex-grow flex justify-center items-center">
+        <div className="grid grid-cols-16 grid-rows-8 gap-1 bg-gray-500 p-4">
+          {/* Here are example cells to match the image pattern. You can add more */}
+          <div className="bg-blue-400 col-start-1 row-start-7"></div>
+          <div className="bg-orange-400 col-start-2 row-start-6"></div>
+          <div className="bg-yellow-400 col-start-3 row-start-5"></div>
+          <div className="bg-green-400 col-start-4 row-start-4"></div>
+          <div className="bg-blue-400 col-start-5 row-start-3"></div>
+          <div className="bg-cyan-400 col-start-6 row-start-2"></div>
+          <div className="bg-orange-400 col-start-7 row-start-3"></div>
+          <div className="bg-green-400 col-start-8 row-start-4"></div>
+          <div className="bg-yellow-400 col-start-9 row-start-5"></div>
+          <div className="bg-cyan-400 col-start-10 row-start-2"></div>
+          <div className="bg-green-400 col-start-11 row-start-7"></div>
+          <div className="bg-blue-400 col-start-12 row-start-3"></div>
+          <div className="bg-purple-400 col-start-13 row-start-8 col-span-3"></div>
         </div>
-      </main>
+      </div>
+
+      {/* Footer Controls */}
+      <div className="flex items-center justify-between bg-gray-700 p-4 text-white">
+        {/* Left Controls */}
+        <div className="flex space-x-4">
+          <button className="text-blue-400">Sound</button>
+          <button className="text-gray-400">Property</button>
+        </div>
+
+        {/* Tempo Control */}
+        <div className="flex items-center space-x-2">
+          <span>Tempo</span>
+          <input
+            type="range"
+            min="60"
+            max="180"
+            value={tempo}
+            onChange={(e) => setTempo(e.target.value)}
+            className="bg-gray-600"
+          />
+          <span>{tempo} BPM</span>
+        </div>
+
+        {/* Right Controls */}
+        <div className="flex space-x-4">
+          <button className="text-gray-400">Settings</button>
+          <button className="text-gray-400">Undo</button>
+          <button className="text-gray-400">Save</button>
+        </div>
+      </div>
     </div>
   );
 }
