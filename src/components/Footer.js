@@ -1,48 +1,94 @@
+import CustomSquircle from "../components/CustomSquircle";
+import { useState } from "react";
+
 export default function Footer({ tempo, setTempo, volume, setVolume }) {
   return (
     <div className="flex items-center justify-between bg-gray-700 p-4 text-white">
       {/* Left Controls */}
-      <div className="flex space-x-4">
-        <button className="text-blue-400">Sound</button>
-        <button className="text-gray-400">Property</button>
+      <div className="flex items-center space-x-4">
+        <CustomSquircle
+          iconSrc="/assets/icons/play.png" // Updated icon path for play button
+          altText="Play"
+          label="Play"
+          onClick={() => console.log("Play button clicked")}
+          customStyle={{
+            background: "#60A5FA", // Light blue background specific for the play button
+            border: "none", // No border for play button
+          }}
+        />
+        <CustomSquircle
+          iconSrc="/assets/icons/sound.png" // Updated icon path for sound button
+          altText="Sound"
+          label="Sound"
+          onClick={() => console.log("Sound button clicked")}
+        />
+        <CustomSquircle
+          iconSrc="/assets/icons/property.png" // Updated icon path for property button
+          altText="Property"
+          label="Property"
+          onClick={() => console.log("Property button clicked")}
+        />
       </div>
 
       {/* Tempo and Volume Controls */}
       <div className="flex items-center space-x-6">
         {/* Tempo Control */}
         <div className="flex items-center space-x-2">
-          <span>Tempo</span>
+          <span className="text-gray-300">Tempo</span>
           <input
             type="range"
             min="60"
             max="180"
             value={tempo}
             onChange={(e) => setTempo(e.target.value)}
-            className="bg-gray-600"
+            className="w-32 h-2 bg-gray-600 rounded-full appearance-none"
+            style={{
+              background: `linear-gradient(to right, #60A5FA 0%, #60A5FA ${
+                (tempo - 60) / 1.2
+              }%, #4B5563 ${(tempo - 60) / 1.2}%, #4B5563 100%)`,
+            }}
           />
-          <span>{tempo} BPM</span>
+          <span className="text-gray-300">{tempo} BPM</span>
         </div>
 
         {/* Volume Control */}
         <div className="flex items-center space-x-2">
-          <span>Volume</span>
+          <span className="text-gray-300">Volume</span>
           <input
             type="range"
             min="0"
             max="100"
             value={volume}
             onChange={(e) => setVolume(e.target.value)}
-            className="bg-gray-600"
+            className="w-32 h-2 bg-gray-600 rounded-full appearance-none"
+            style={{
+              background: `linear-gradient(to right, #60A5FA 0%, #60A5FA ${volume}%, #4B5563 ${volume}%, #4B5563 100%)`,
+            }}
           />
-          <span>{volume}%</span>
+          <span className="text-gray-300">{volume}%</span>
         </div>
       </div>
 
       {/* Right Controls */}
-      <div className="flex space-x-4">
-        <button className="text-gray-400">Settings</button>
-        <button className="text-gray-400">Undo</button>
-        <button className="text-gray-400">Save</button>
+      <div className="flex items-center space-x-4">
+        <CustomSquircle
+          iconSrc="/assets/icons/clear.png" // Updated icon path for clear button
+          altText="Clear"
+          label="Clear"
+          onClick={() => console.log("Clear button clicked")}
+        />
+        <CustomSquircle
+          iconSrc="/assets/icons/save.png" // Updated icon path for save button
+          altText="Save"
+          label="Save"
+          onClick={() => console.log("Save button clicked")}
+        />
+        <CustomSquircle
+          iconSrc="/assets/icons/export.png" // Updated icon path for export button
+          altText="Export"
+          label="Export"
+          onClick={() => console.log("Export button clicked")}
+        />
       </div>
     </div>
   );

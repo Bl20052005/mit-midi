@@ -2,14 +2,6 @@
 import React from "react";
 import Image from "next/image";
 
-// Importing icons
-import restartIcon from "../assets/icons/restart-icon.png";
-import backIcon from "../assets/icons/back-icon.png";
-import forwardIcon from "../assets/icons/forward-icon.png";
-import settingsIcon from "../assets/icons/filter-icon.png";
-import shareIcon from "../assets/icons/share-icon.png";
-import infoIcon from "../assets/icons/info-icon.png";
-
 const Header = () => {
   // Event handlers for each icon
   const handleRestartClick = () => {
@@ -41,7 +33,7 @@ const Header = () => {
       {/* Left controls */}
       <div className="flex space-x-4 flex-1">
         <Image
-          src={restartIcon}
+          src="/assets/icons/restart-icon.png"
           alt="Restart"
           width={30}
           height={30}
@@ -49,7 +41,7 @@ const Header = () => {
           className="cursor-pointer"
         />
         <Image
-          src={backIcon}
+          src="/assets/icons/back-icon.png"
           alt="Back"
           width={30}
           height={30}
@@ -57,7 +49,7 @@ const Header = () => {
           className="cursor-pointer"
         />
         <Image
-          src={forwardIcon}
+          src="/assets/icons/forward-icon.png"
           alt="Forward"
           width={30}
           height={30}
@@ -65,7 +57,7 @@ const Header = () => {
           className="cursor-pointer"
         />
         <Image
-          src={settingsIcon}
+          src="/assets/icons/filter-icon.png"
           alt="Settings"
           width={30}
           height={30}
@@ -82,7 +74,7 @@ const Header = () => {
       {/* Right controls */}
       <div className="flex space-x-4 flex-1 justify-end">
         <Image
-          src={shareIcon}
+          src="/assets/icons/share-icon.png"
           alt="Share"
           width={30}
           height={30}
@@ -90,7 +82,7 @@ const Header = () => {
           className="cursor-pointer"
         />
         <Image
-          src={infoIcon}
+          src="/assets/icons/info-icon.png"
           alt="Info"
           width={30}
           height={30}
