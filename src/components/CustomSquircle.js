@@ -6,7 +6,7 @@ export default function CustomSquircle({
   altText,
   onClick,
   label,
-  customStyle = {}, // Add support for custom styles
+  customStyle = {},
 }) {
   return (
     <div className="flex flex-col items-center">
@@ -18,25 +18,25 @@ export default function CustomSquircle({
           width: "48px",
           height: "48px",
           background: "none",
-          borderRadius: "12px", // Rounded square
-          border: "1px solid #E5E7EB", // default light gray border
+          borderRadius: "12px",
+          border: "1px solid #E5E7EB",
           padding: "0",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          ...customStyle, // Apply custom styles if provided
+          ...customStyle,
         }}
         style={{
           width: "48px",
           height: "48px",
           background: "none",
-          borderRadius: "12px", // Rounded square
-          border: "1px solid #E5E7EB", // default light gray border
+          borderRadius: "12px",
+          border: "1px solid #E5E7EB",
           padding: "0",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          ...customStyle, // Apply custom styles if provided
+          ...customStyle,
         }}
       >
         <Image src={iconSrc} alt={altText} width={24} height={24} />
@@ -46,7 +46,7 @@ export default function CustomSquircle({
   );
 }
 
-/**
+/** Alternative approach 
  * import Image from "next/image";
 
 export default function CustomSquircle({

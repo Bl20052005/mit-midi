@@ -7,23 +7,29 @@ export default function Footer({ tempo, setTempo, volume, setVolume }) {
       {/* Left Controls */}
       <div className="flex items-center space-x-4">
         <CustomSquircle
-          iconSrc="/assets/icons/play.png" // Updated icon path for play button
+          iconSrc="/assets/icons/play.png"
+          play
+          button
           altText="Play"
           label="Play"
           onClick={() => console.log("Play button clicked")}
           customStyle={{
-            background: "#60A5FA", // Light blue background specific for the play button
-            border: "none", // No border for play button
+            background: "#60A5FA",
+            border: "none",
           }}
         />
         <CustomSquircle
-          iconSrc="/assets/icons/sound.png" // Updated icon path for sound button
+          iconSrc="/assets/icons/sound.png"
+          sound
+          button
           altText="Sound"
           label="Sound"
           onClick={() => console.log("Sound button clicked")}
         />
         <CustomSquircle
-          iconSrc="/assets/icons/property.png" // Updated icon path for property button
+          iconSrc="/assets/icons/property.png"
+          property
+          button
           altText="Property"
           label="Property"
           onClick={() => console.log("Property button clicked")}
@@ -72,19 +78,19 @@ export default function Footer({ tempo, setTempo, volume, setVolume }) {
       {/* Right Controls */}
       <div className="flex items-center space-x-4">
         <CustomSquircle
-          iconSrc="/assets/icons/clear.png" // Updated icon path for clear button
+          iconSrc="/assets/icons/clear.png"
           altText="Clear"
           label="Clear"
           onClick={() => console.log("Clear button clicked")}
         />
         <CustomSquircle
-          iconSrc="/assets/icons/save.png" // Updated icon path for save button
+          iconSrc="/assets/icons/save.png"
           altText="Save"
           label="Save"
           onClick={() => console.log("Save button clicked")}
         />
         <CustomSquircle
-          iconSrc="/assets/icons/export.png" // Updated icon path for export button
+          iconSrc="/assets/icons/export.png"
           altText="Export"
           label="Export"
           onClick={() => console.log("Export button clicked")}
