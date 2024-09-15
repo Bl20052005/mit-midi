@@ -1,6 +1,10 @@
 import CustomSquircle from "../components/CustomSquircle";
 import { useState } from "react";
 import Export from "./export";
+import PropertyModal from "./property-modal";
+import propertyButton from "./propertyButton";
+
+
 
 export default function Footer({ tempo, setTempo, volume, setVolume }) {
   return (
@@ -34,7 +38,12 @@ export default function Footer({ tempo, setTempo, volume, setVolume }) {
           altText="Property"
           label="Property"
           onClick={() => console.log("Property button clicked")}
+          
         />
+
+        <PropertyModal />
+
+      
       </div>
 
       {/* Tempo and Volume Controls */}

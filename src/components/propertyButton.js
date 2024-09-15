@@ -1,7 +1,8 @@
 import { Button } from "@nextui-org/react";
 import Image from "next/image";
+import PropertyModal from "./property-modal";
 
-export default function CustomSquircle({
+export default function propertyButton({
   iconSrc,
   altText,
   onClick,
@@ -41,45 +42,9 @@ export default function CustomSquircle({
       >
         
         <Image src={iconSrc} alt={altText} width={24} height={24} />
+        <PropertyModal />
       </Button>
       <span className="text-sm text-gray-300 mt-2">{label}</span>
     </div>
   );
 }
-
-/** Alternative approach 
- * import Image from "next/image";
-
-export default function CustomSquircle({
-  iconSrc,
-  altText,
-  onClick,
-  label,
-  customStyle = {}, // Add support for custom styles
-}) {
-  return (
-    <div className="flex flex-col items-center">
-      <div
-        onClick={onClick}
-        style={{
-          width: "48px",
-          height: "48px",
-          background: "none",
-          borderRadius: "12px", // Rounded square
-          border: "1px solid #E5E7EB", // default light gray border
-          padding: "0",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          cursor: "pointer", // Add cursor pointer for better UX
-          ...customStyle, // Apply custom styles if provided
-        }}
-      >
-        <Image src={iconSrc} alt={altText} width={24} height={24} />
-      </div>
-      <span className="text-sm text-gray-300 mt-2">{label}</span>
-    </div>
-  );
-}
-
- */
