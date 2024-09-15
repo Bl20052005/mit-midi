@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import ShortcutModal from "./shortcut-modal";
 import FilterModal from "./filter-modal";
+import RootLayout from "./sign-in";
 
 
 const Header = () => {
@@ -64,6 +65,8 @@ const Header = () => {
 
         <FilterModal />
         <ShortcutModal />
+        
+        
       </div>
 
       {/* Title */}
@@ -90,6 +93,7 @@ const Header = () => {
           onClick={handleInfoClick}
           className="cursor-pointer"
         />
+        <RootLayout />
       </div>
     </div>
   );
