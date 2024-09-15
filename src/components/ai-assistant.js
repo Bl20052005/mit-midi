@@ -67,10 +67,6 @@ function AiSideBar({ post, notes, setNotes }) {
         };
       }),
     ]);
-    setNotes((notes) => {
-      console.log(notes);
-      return notes;
-    });
   }
 
   return (

@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { parseMidiFile } from "./parse-midi";
+import * as Tone from "tone";
 
-export default function UploadMidiFile({ midiData, setMidiData }) {
+export default function UploadMidiFile({ midiData, setMidiData, setNotes }) {
   const [error, setError] = useState("");
 
   // Handle File Upload
@@ -21,7 +22,21 @@ export default function UploadMidiFile({ midiData, setMidiData }) {
           const midiJson = await parseMidiFile(arrayBuffer);
 
           setMidiData(midiJson);
-          console.log(midiJson);
+          console.log("midiJson", midiJson);
+
+          setNotes((notes) => [
+            ...notes,
+            ...midiJson.map((m) => {
+              console.log(m);
+              return {
+                duration: m.duration,
+                id: Math.floor(Math.random() * 10000000),
+                pitch: Tone.Frequency(m.name).toMidi(),
+                start: m.start,
+                selected: false,
+              };
+            }),
+          ]);
         };
 
         reader.readAsArrayBuffer(file);
@@ -37,8 +52,8 @@ export default function UploadMidiFile({ midiData, setMidiData }) {
     <div>
       <h2>Upload a MIDI File</h2>
       <input type="file" accept=".mid" onChange={handleFileUpload} />
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      {midiData && <pre>{JSON.stringify(midiData, null, 2)}</pre>}
+      {/* {error && <p style={{ color: "red" }}>{error}</p>}
+      {midiData && <pre>{JSON.stringify(midiData, null, 2)}</pre>} */}
     </div>
   );
 }
