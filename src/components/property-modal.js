@@ -4,6 +4,7 @@
 import React, { useState } from "react";
 import { Modal, Box, Typography, Button } from "@mui/material";
 import { MdOutlineSwitchAccessShortcut } from "react-icons/md";
+import { IoFilterSharp } from "react-icons/io5";
 import AiSideBar from "./ai-assistant";
 import AssistantServer from "./ai-assistant-server";
 import {
@@ -48,7 +49,7 @@ const PropertyModal = ({ children }) => {
 
   return (
     <>
-      <MdOutlineSwitchAccessShortcut
+      <IoFilterSharp
         onClick={handleOpen}
         className="cursor-pointer w-[27px] h-[27px] pt-[4px] fill-[#EEEEEE]"
       />
