@@ -11,6 +11,7 @@ import Footer from "@/components/Footer";
 import AssistantServer from "@/components/ai-assistant-server";
 import SynthPiano from "@/components/playback";
 import AIChat from "@/components/ai-chat";
+import MidiJsonEdit from "@/components/midi-json-edit";
 
 export default function Home() {
   const [tempo, setTempo] = useState(120);
@@ -24,6 +25,16 @@ export default function Home() {
       <AssistantServer />
       <SynthPiano />
       <AIChat />
+      <button
+        onClick={() =>
+          MidiJsonEdit(
+            '[\n {"name": 72, "duration": 0.3, "start": 0.0},\n {"name": 74, "duration": 0.3, "start": 0.3},\n {"name": 76, "duration": 0.3, "start": 0.6},\n {"name": 72, "duration": 0.3, "start": 0.9},\n {"name": 74, "duration": 0.3, "start": 1.2},\n {"name": 76, "duration": 0.3, "start": 1.5},\n {"name": 73, "duration": 0.3, "start": 1.8},\n {"name": 75, "duration": 0.3, "start": 2.1},\n {"name": 77, "duration": 0.3, "start": 2.4},\n {"name": 73, "duration": 0.3, "start": 2.7},\n {"name": 75, "duration": 0.3, "start": 3.0},\n {"name": 77, "duration": 0.3, "start": 3.3},\n {"name": 73, "duration": 0.3, "start": 3.6},\n {"name": 75, "duration": 0.3, "start": 3.9},\n {"name": 77, "duration": 0.3, "start": 4.2},\n {"name": 71, "duration": 0.3, "start": 4.5},\n {"name": 73, "duration": 0.3, "start": 4.8},\n {"name": 75, "duration": 0.3, "start": 5.1},\n {"name": 71, "duration": 0.3, "start": 5.4},\n {"name": 73, "duration": 0.3, "start": 5.7},\n {"name": 75, "duration": 0.3, "start": 6.0},\n {"name": 71, "duration": 0.3, "start": 6.3},\n {"name": 73, "duration": 0.3, "start": 6.6},\n {"name": 75, "duration": 0.3, "start": 6.9},\n {"name": 71, "duration": 0.3, "start": 7.2},\n {"name": 73, "duration": 0.3, "start": 7.5},\n {"name": 75, "duration": 0.3, "start": 7.8},\n {"name": 71, "duration": 0.3, "start": 8.1},\n {"name": 73, "duration": 0.3, "start": 8.4},\n {"name": 75, "duration": 0.3, "start": 8.7},\n {"name": 71, "duration": 0.3, "start": 9.0},\n {"name": 73, "duration": 0.3, "start": 9.3},\n {"name": 75, "duration": 0.3, "start": 9.6},\n {"name": 71, "duration": 0.3, "start": 9.9}\n]',
+            "please make it faster"
+          )
+        }
+      >
+        hoefrioihvfefhrpoeuofeqfhoeqrf
+      </button>
 
       {/* Main Grid, add the piano UI here */}
       <div className="flex-grow flex justify-center items-center">
