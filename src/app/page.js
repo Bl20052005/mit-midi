@@ -27,7 +27,7 @@ export default function Home() {
     <div className="flex flex-col h-screen w-screen bg-gray-300">
       <Header />
       <SynthPiano notes={notes} setNotes={setNotes} />
-      <AIChat notes={notes} />
+      
       <ReplaceMidi notes={notes} setNotes={setNotes}/>
       {/* <InstrumentsDropdown /> */}
       <button

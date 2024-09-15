@@ -1,11 +1,22 @@
+"use client";
+
 import CustomSquircle from "../components/CustomSquircle";
 import { useState } from "react";
 import Export from "./export";
 import PropertyModal from "./property-modal";
 import propertyButton from "./propertyButton";
 import { playAutoPiano } from "./playback";
+import AIChat from "./ai-chat";
 
-export default function Footer({ tempo, setTempo, volume, setVolume, notes, setNotes}) {
+export default function Footer({
+  tempo,
+  setTempo,
+  volume,
+  setVolume,
+  notes,
+  setNotes,
+}) {
+  const [chatVis, setChatVis] = useState(false);
   return (
     <div className="flex items-center justify-between bg-gray-700 p-4 text-white">
       {/* Left Controls */}
@@ -27,21 +38,6 @@ export default function Footer({ tempo, setTempo, volume, setVolume, notes, setN
                 };
               })
             );
-            //             duration
-            // :
-            // 3
-            // id
-            // :
-            // 1726388927634
-            // pitch
-            // :
-            // 120
-            // selected
-            // :
-            // true
-            // start
-            // :
-            // 4
           }}
           customStyle={{
             background: "#60A5FA",
@@ -62,10 +58,11 @@ export default function Footer({ tempo, setTempo, volume, setVolume, notes, setN
           button
           altText="Property"
           label="Property"
-          onClick={() => console.log("Property button clicked")}
+          onClick={() => setChatVis((chatVis) => !chatVis)}
         />
+        {chatVis && <AIChat notes={notes} />}
 
-        <PropertyModal notes={notes} setNotes={setNotes}/>
+        <PropertyModal notes={notes} setNotes={setNotes} />
       </div>
 
       {/* Tempo and Volume Controls */}
@@ -115,6 +112,14 @@ export default function Footer({ tempo, setTempo, volume, setVolume, notes, setN
           label="Clear"
           onClick={() => console.log("Clear button clicked")}
         />
+        <CustomSquircle
+          iconSrc="/assets/icons/clear.png"
+          altText="Upload"
+          label="Upload"
+          onClick={() => console.log("Upload button clicked")}
+        >
+          
+        </CustomSquircle>
         <CustomSquircle
           iconSrc="/assets/icons/save.png"
           altText="Save"

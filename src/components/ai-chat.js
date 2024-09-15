@@ -57,7 +57,7 @@ function AIChat({ notes }) {
   }
 
   return (
-    <div className="w-[400px] flex flex-col gap-[15px] items-center rounded-xl bg-sky-300">
+    <div className="w-[400px] flex flex-col gap-[15px] items-center rounded-xl bg-sky-200 max-h-[400px] min-h-[300px] overflow-auto border-4 border-cyan-500 absolute top-0 left-0 text-black">
       <div>
         {history.map((msg, i) => {
           return (
@@ -67,7 +67,9 @@ function AIChat({ notes }) {
                 msg[0] == "ai" ? "self-start" : "self-end"
               } w-[300px] mb-[15px]`}
             >
-              <div>{msg[0]}</div>
+              <div>
+                <span className="bg-slate-100 m-2 p-3 rounded-xl">{msg[0]}</span>
+              </div>
               <div className="bg-cyan-100 p-4 rounded-xl">
                 {msg[1]?.replace(/\\n/g, "\n")}
               </div>
@@ -84,7 +86,7 @@ function AIChat({ notes }) {
           />
         </div>
         <button type="submit">
-          <IoMdSend />
+          <IoMdSend className="w-[30px] h-[30px]" />
         </button>
       </form>
       {response}
