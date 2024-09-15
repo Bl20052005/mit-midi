@@ -1,17 +1,17 @@
 import { NextResponse } from "next/server";
 
-export async function GPTPost(prompt) {
+export async function POST(request) {
   const MODEL_ID = "8w6yyp2q";
   const BASETEN_API_KEY = "YMKFudUr.FcjOTi13DlaR3ZtCbBIumoXeqFJy25yx"; // Paste from Discord
 
-  // const params = await request.json();
+  const params = await request.json();
   const messages = [
     {
       role: "system",
       content:
         "You are an expert software developer serving as a mentor at the HackMIT hackathon.",
     },
-    { role: "user", content: prompt },
+    { role: "user", content: params.prompt },
   ];
 
   const payload = {
@@ -26,7 +26,6 @@ export async function GPTPost(prompt) {
       `https://model-${MODEL_ID}.api.baseten.co/production/predict`,
       {
         method: "POST",
-        mode: "no-cors",
         headers: {
           Authorization: `Api-Key ${BASETEN_API_KEY}`,
           "Content-Type": "application/json",
@@ -49,9 +48,9 @@ export async function GPTPost(prompt) {
       result += decoder.decode(value, { stream: true });
     }
     console.log("The response is", result);
-    return result;
+    return NextResponse.json({ result });
   } catch (error) {
     console.error("API request failed:", error);
-    return error.message;
+    return NextResponse.json({ error: error.message });
   }
 }
