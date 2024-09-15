@@ -49,26 +49,36 @@ function AIChat() {
   }
 
   return (
-    <>
+    <div className="w-[400px] flex flex-col gap-[15px] items-center rounded-xl bg-sky-300">
       <div>
         {history.map((msg, i) => {
           return (
-            <div key={msg[1] + i}>
-              {msg[0]} : {msg[1].replace(/\\n/g, '\n')}
+            <div
+              key={msg[1] + i}
+              className={`${
+                msg[0] == "ai" ? "self-start" : "self-end"
+              } w-[300px] mb-[15px]`}
+            >
+              <div>{msg[0]}</div>
+              <div className="bg-cyan-100 p-4 rounded-xl">{msg[1].replace(/\\n/g, "\n")}</div>
             </div>
           );
         })}
       </div>
       <form onSubmit={(e) => handleOnAISubmit(e)}>
         <div>
-          <Input label="Chat" placeholder="Ask questions about your music!" onChange={(e) => setUserConvo(e.target.value)}/>
+          <Input
+            label="Chat"
+            placeholder="Ask questions about your music!"
+            onChange={(e) => setUserConvo(e.target.value)}
+          />
         </div>
         <button type="submit">
           <IoMdSend />
         </button>
       </form>
       {response}
-    </>
+    </div>
   );
 }
 

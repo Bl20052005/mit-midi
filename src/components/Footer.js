@@ -1,5 +1,6 @@
 import CustomSquircle from "../components/CustomSquircle";
 import { useState } from "react";
+import Export from "./export";
 
 export default function Footer({ tempo, setTempo, volume, setVolume }) {
   return (
@@ -93,7 +94,7 @@ export default function Footer({ tempo, setTempo, volume, setVolume }) {
           iconSrc="/assets/icons/export.png"
           altText="Export"
           label="Export"
-          onClick={() => console.log("Export button clicked")}
+          onClick={() => Export([])}
         />
       </div>
     </div>
