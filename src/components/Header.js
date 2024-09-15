@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import ShortcutModal from "./shortcut-modal";
+import FilterModal from "./filter-modal";
 
 
 const Header = () => {
@@ -68,6 +69,7 @@ const Header = () => {
           onClick={handleSettingsClick}
           className="cursor-pointer"
         />
+        <FilterModal />
         <ShortcutModal />
       </div>
 
