@@ -43,9 +43,12 @@ const FilterModal = ({ children }) => {
   const handleClose = () => setOpen(false);
 
 
-
+  
   return (
+
     <>
+
+      
       <LiaFilterSolid
         onClick={handleOpen}
         className="cursor-pointer w-[27px] h-[27px] pt-[4px] fill-[#EEEEEE]"
@@ -89,6 +92,7 @@ const FilterModal = ({ children }) => {
       
     </>
   );
+  
 };
 
 export default FilterModal;
