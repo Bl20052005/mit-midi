@@ -25,3 +25,18 @@ body {
     text-wrap: balance;
   }
 }
+
+.sign {
+  background-color: rgb(102, 102, 102);
+  color: white;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 10px;
+  
+}
+
+.isIn {
+
+  margin: 5px;
+  
+}

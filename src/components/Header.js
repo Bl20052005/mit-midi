@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import ShortcutModal from "./shortcut-modal";
 
+
 const Header = () => {
 
   // Event handlers for each icon
@@ -34,6 +35,7 @@ const Header = () => {
     <div className="relative w-full h-16 bg-[#666666] border-b border-neutral-100 flex items-center justify-between px-4">
       {/* Left controls */}
       <div className="flex space-x-4 flex-1">
+
         <Image
           src="/assets/icons/restart-icon.png"
           alt="Restart"
@@ -74,6 +76,7 @@ const Header = () => {
         M I T I
       </div>
 
+      
       {/* Right controls */}
       <div className="flex space-x-4 flex-1 justify-end">
         <Image
