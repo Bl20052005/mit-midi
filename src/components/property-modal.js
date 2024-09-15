@@ -7,6 +7,7 @@ import { MdOutlineSwitchAccessShortcut } from "react-icons/md";
 import { IoFilterSharp } from "react-icons/io5";
 import AiSideBar from "./ai-assistant";
 import AssistantServer from "./ai-assistant-server";
+
 import {
 
   ModalContent,
@@ -45,6 +46,8 @@ const PropertyModal = ({ children }) => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const [notes, setNotes] = useState([]);
+
 
 
   return (
@@ -64,7 +67,7 @@ const PropertyModal = ({ children }) => {
         <div className="h-full w-[90%] flex flex-col gap-3 bg-gray-200">
 
 
-          <AssistantServer />
+          <AssistantServer notes={notes} setNotes={setNotes} />
         </div>
         </Box>
       </Modal>
