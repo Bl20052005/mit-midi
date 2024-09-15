@@ -4,6 +4,8 @@
 import React, { useState } from "react";
 import { Modal, Box, Typography, Button } from "@mui/material";
 import { MdOutlineSwitchAccessShortcut } from "react-icons/md";
+import AiSideBar from "./ai-assistant";
+import AssistantServer from "./ai-assistant-server";
 import {
 
   ModalContent,
@@ -37,7 +39,7 @@ const style = {
   borderRadius: "10px",
 };
 
-const FilterModal = ({ children }) => {
+const PropertyModal = ({ children }) => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -60,28 +62,9 @@ const FilterModal = ({ children }) => {
         <Box sx={style} style={{ backgroundColor: "#E2E8F0" }}>
         <div className="h-full w-[90%] flex flex-col gap-3 bg-gray-200">
 
-          <Dropdown>
-                  <DropdownTrigger>
-                  <Button variant="bordered">Dropdown
-                    
-                  </Button>
-                    
-                  </DropdownTrigger>
-                  <DropdownMenu aria-label="Static Actions">
-                    <DropdownItem key="One">1</DropdownItem>
-                    <DropdownItem key="Two">2</DropdownItem>
-                    <DropdownItem key="Three">3</DropdownItem>
-                    <DropdownItem
-                      key="delete"
-                      className="text-danger"
-                      color="danger"
-                    >
-                      lol
-                    </DropdownItem>
-                  </DropdownMenu>
-                </Dropdown>
 
-          </div>
+          <AssistantServer />
+        </div>
         </Box>
       </Modal>
 
@@ -91,4 +74,4 @@ const FilterModal = ({ children }) => {
   );
 };
 
-export default FilterModal;
+export default PropertyModal;

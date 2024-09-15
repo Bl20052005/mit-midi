@@ -39,6 +39,7 @@ export default function CustomSquircle({
           ...customStyle,
         }}
       >
+        
         <Image src={iconSrc} alt={altText} width={24} height={24} />
       </Button>
       <span className="text-sm text-gray-300 mt-2">{label}</span>
