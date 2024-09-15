@@ -7,6 +7,7 @@ export default function MultiSelect({
   selectedOptions,
   setSelectedOptions,
   options,
+  name
 }) {
   const handleChange = (options) => {
     setSelectedOptions(options);
@@ -19,9 +20,9 @@ export default function MultiSelect({
         value={selectedOptions}
         onChange={handleChange}
         options={options}
-        className="basic-multi-select"
+        className={name}
         classNamePrefix="select"
-        placeholder="Select your skills..."
+        placeholder="Select your genre / moods"
       />
     </div>
   );
