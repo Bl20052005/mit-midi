@@ -61,7 +61,7 @@ your output must contain this json formatted output and the json alone, under no
     return res.result;
   }
 
-  return <AiSideBar post={post} setNotes={setNotes} />;
+  return <AiSideBar post={post} notes={notes} setNotes={setNotes} />;
 }
 
 export default AssistantServer;

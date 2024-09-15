@@ -5,7 +5,7 @@ import PropertyModal from "./property-modal";
 import propertyButton from "./propertyButton";
 import { playAutoPiano } from "./playback";
 
-export default function Footer({ tempo, setTempo, volume, setVolume, notes }) {
+export default function Footer({ tempo, setTempo, volume, setVolume, notes, setNotes}) {
   return (
     <div className="flex items-center justify-between bg-gray-700 p-4 text-white">
       {/* Left Controls */}
@@ -65,7 +65,7 @@ export default function Footer({ tempo, setTempo, volume, setVolume, notes }) {
           onClick={() => console.log("Property button clicked")}
         />
 
-        <PropertyModal />
+        <PropertyModal notes={notes} setNotes={setNotes}/>
       </div>
 
       {/* Tempo and Volume Controls */}

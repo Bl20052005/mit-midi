@@ -26,7 +26,6 @@ export default function Home() {
   return (
     <div className="flex flex-col h-screen w-screen bg-gray-300">
       <Header />
-      <AssistantServer notes={notes} setNotes={setNotes} />
       <SynthPiano notes={notes} setNotes={setNotes} />
       <AIChat notes={notes} />
       <ReplaceMidi notes={notes} setNotes={setNotes}/>
@@ -70,6 +69,7 @@ export default function Home() {
         volume={volume}
         setVolume={setVolume}
         notes={notes}
+        setNotes={setNotes}
       />
     </div>
   );

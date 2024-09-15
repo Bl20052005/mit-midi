@@ -41,12 +41,10 @@ const style = {
   borderRadius: "10px",
 };
 
-const PropertyModal = ({ children }) => {
+const PropertyModal = ({ children, notes, setNotes }) => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
-  const [notes, setNotes] = useState([]);
 
 
 
