@@ -61,14 +61,7 @@ const Header = () => {
           onClick={handleForwardClick}
           className="cursor-pointer"
         />
-        <Image
-          src="/assets/icons/filter-icon.png"
-          alt="Settings"
-          width={30}
-          height={30}
-          onClick={handleSettingsClick}
-          className="cursor-pointer"
-        />
+
         <FilterModal />
         <ShortcutModal />
       </div>

@@ -3,7 +3,7 @@
 // components/Modal.js
 import React, { useState } from "react";
 import { Modal, Box, Typography, Button } from "@mui/material";
-import { MdOutlineSwitchAccessShortcut } from "react-icons/md";
+import { LiaFilterSolid } from "react-icons/lia";
 import {
 
   ModalContent,
@@ -46,7 +46,7 @@ const FilterModal = ({ children }) => {
 
   return (
     <>
-      <MdOutlineSwitchAccessShortcut
+      <LiaFilterSolid
         onClick={handleOpen}
         className="cursor-pointer w-[27px] h-[27px] pt-[4px] fill-[#EEEEEE]"
       />
