@@ -9,6 +9,8 @@ import PromptForm from "@/components/PromptForm";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AssistantServer from "@/components/ai-assistant-server";
+import SynthPiano from "@/components/playback";
+import AIChat from "@/components/ai-chat";
 
 export default function Home() {
   const [tempo, setTempo] = useState(120);
@@ -20,7 +22,8 @@ export default function Home() {
     <div className="flex flex-col h-screen w-screen bg-gray-300">
       <Header />
       <AssistantServer />
-      {/* <SynthPiano /> */}
+      <SynthPiano />
+      <AIChat />
 
       {/* Main Grid, add the piano UI here */}
       <div className="flex-grow flex justify-center items-center">
