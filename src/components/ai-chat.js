@@ -33,7 +33,7 @@ function AIChat({ notes }) {
         duration: note.duration,
       };
     })
-  )}
+  ).slice(0, 1000)}
   answer the following question comprehensively, your answer should revolve around creativity, composition, and useful tips in music and music production; also remember to keep your answers short and concise, only having long answers if the user requests it, and remember the limitations of this program, which is that it is manipulating MIDI: ${userConvo}`;
 
     const response = await fetch("/api/chatgpt", {
@@ -69,7 +69,7 @@ function AIChat({ notes }) {
             >
               <div>{msg[0]}</div>
               <div className="bg-cyan-100 p-4 rounded-xl">
-                {msg[1].replace(/\\n/g, "\n")}
+                {msg[1]?.replace(/\\n/g, "\n")}
               </div>
             </div>
           );
