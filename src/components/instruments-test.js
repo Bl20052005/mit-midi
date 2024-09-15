@@ -8,40 +8,61 @@ import { Tiny } from "jzz-synth-tiny";
 Tiny(JZZ);
 
 export const playAutoPiano = (instrument, midiData) => {
-  JZZ.synth
-    .Tiny()
-    .noteOn(0, "C5", 127)
-    .wait(500)
-    .noteOn(0, "E5", 127)
-    .wait(500)
-    .noteOn(0, "G5", 127)
-    .wait(500)
-    .noteOff(0, "C5")
-    .noteOff(0, "E5")
-    .noteOff(0, "G5");
+  // JZZ.synth
+  //   .Tiny()
+  //   .noteOn(0, "C5", 127)
+  //   .wait(500)
+  //   .noteOn(0, "E5", 127)
+  //   .wait(500)
+  //   .noteOn(0, "G5", 127)
+  //   .wait(500)
+  //   .noteOff(0, "C5")
+  //   .noteOff(0, "E5")
+  //   .noteOff(0, "G5");
 
-  midiData.map((data, i) => {
-    let mid;
-    if (data.name) {
-      mid = Tone.Frequency(data.name).toMidi();
-    } else {
-      mid = data.midi;
+  // midiData.map((data, i) => {
+  //   let mid;
+  //   if (data.name) {
+  //     mid = Tone.Frequency(data.name).toMidi();
+  //   } else {
+  //     mid = data.midi;
+  //   }
+  //   player.play(
+  //     0, // instrument: 24 is "Acoustic Guitar (nylon)"
+  //     mid, // note: midi number or frequency in Hz (if > 127)
+  //     0.5, // velocity: 0..1
+  //     i * 0.01, // delay in seconds
+  //     1 // duration in seconds
+  //   );
+  // });
+  for (let j = 0; j < 5; j++) {
+    for (let i = 0; i < 5; i++) {
+      let data = midiData[i];
+      console.log(data);
+      player.play(
+        0, // instrument: 24 is "Acoustic Guitar (nylon)"
+        50, // note: midi number or frequency in Hz (if > 127)
+        0.5, // velocity: 0..1
+        data.start, // delay in seconds
+        1 // duration in seconds
+      );
+      player.play(
+        0, // instrument: 24 is "Acoustic Guitar (nylon)"
+        56, // note: midi number or frequency in Hz (if > 127)
+        0.5, // velocity: 0..1
+        data.start, // delay in seconds
+        1 // duration in seconds
+      );
+      player.play(
+        0, // instrument: 24 is "Acoustic Guitar (nylon)"
+        53, // note: midi number or frequency in Hz (if > 127)
+        0.5, // velocity: 0..1
+        data.start, // delay in seconds
+        1 // duration in seconds
+      );
     }
-    console.log(
-      0, // instrument: 24 is "Acoustic Guitar (nylon)"
-      56, // note: midi number or frequency in Hz (if > 127)
-      0.5, // velocity: 0..1
-      i, // delay in seconds
-      1 // duration in seconds
-    );
-    player.play(
-      0, // instrument: 24 is "Acoustic Guitar (nylon)"
-      56, // note: midi number or frequency in Hz (if > 127)
-      0.5, // velocity: 0..1
-      i, // delay in seconds
-      1 // duration in seconds
-    );
-  });
+  }
+
   //   const now = Tone.now();
 
   //   console.log(midiData, "mididata", midiData[0]);

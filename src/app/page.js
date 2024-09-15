@@ -14,6 +14,8 @@ import AIChat from "@/components/ai-chat";
 import MidiJsonEdit from "@/components/midi-json-edit";
 import { playAutoPiano } from "@/components/instruments-test";
 import InstrumentsDropdown from "@/components/instruments-dropdown";
+import PianoRoll from "@/components/piano";
+// import MidiPlayerComponent from "@/components/test";
 
 export default function Home() {
   const [tempo, setTempo] = useState(120);
@@ -21,12 +23,14 @@ export default function Home() {
 
   const [result, setResult] = useState(""); // Initially set result to an empty string
 
+  const [notes, setNotes] = useState([]);
+
   return (
     <div className="flex flex-col h-screen w-screen bg-gray-300">
       <Header />
-      
+      <AssistantServer notes={notes} setNotes={setNotes} />
       <SynthPiano />
-      <AIChat />
+      <AIChat notes={notes} />
       <InstrumentsDropdown />
       <button
         onClick={() =>
@@ -1036,6 +1040,8 @@ export default function Home() {
       >
         frbruoetitg
       </button>
+      {/* <MidiPlayerComponent /> */}
+      <PianoRoll notes={notes} setNotes={setNotes} />
 
       {/* Main Grid, add the piano UI here */}
       <div className="flex-grow flex justify-center items-center">
@@ -1062,6 +1068,7 @@ export default function Home() {
         setTempo={setTempo}
         volume={volume}
         setVolume={setVolume}
+        notes={notes}
       />
     </div>
   );

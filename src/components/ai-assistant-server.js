@@ -1,7 +1,7 @@
 import { GPTPost } from "@/app/api/chatgpt/route";
 import AiSideBar from "./ai-assistant";
 
-function AssistantServer() {
+function AssistantServer({ notes, setNotes }) {
   async function post(details, selectedOptions, music, purpose = "generate") {
     let generatePrompt = `${selectedOptions.join(", ")}
     Based on the previous keywords described to you, as well as the following description:
@@ -24,7 +24,15 @@ your output must contain this json formatted output and the json alone, under no
     Based on the previous keywords described to you, as well as the following description:
     ${details}
     you should generate a midi formatted json output of the following format that REPLACES the current music:
-    ${music}
+    ${JSON.stringify(
+      notes.map((note) => {
+        return {
+          midi: note.pitch,
+          start: note.start,
+          duration: note.duration,
+        };
+      })
+    )}
     ; your response must be DIFFERENT enough from the music above that was given but different in the ways specificed above in both the detail and the mood section,
     your response should be in the following format (each object representing a musical note):
 [
@@ -53,7 +61,7 @@ your output must contain this json formatted output and the json alone, under no
     return res.result;
   }
 
-  return <AiSideBar post={post} />;
+  return <AiSideBar post={post} setNotes={setNotes} />;
 }
 
 export default AssistantServer;

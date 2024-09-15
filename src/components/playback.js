@@ -13,11 +13,13 @@ export const playAutoPiano = (midiData) => {
   // Trigger C4, E4, G4 to simulate a chord
   let synth = new Tone.PolySynth(Tone.Synth).toDestination();
   midiData.map((note) => {
-    synth.triggerAttackRelease(
-      Tone.Frequency(note.name, "midi").toNote(),
-      note.duration,
-      now + note.start
-    );
+    let l;
+    if (note.midi) {
+      l = Tone.Frequency(note.midi, "midi").toNote();
+    } else {
+      l = note.name;
+    }
+    synth.triggerAttackRelease(l, note.duration, now + note.start);
   });
   // synth.triggerAttackRelease("C4", "8n", now);
   // synth.triggerAttackRelease("E4", "8n", now + 0.5);

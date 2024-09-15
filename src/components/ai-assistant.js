@@ -5,7 +5,7 @@ import MultiSelect from "./multi-select";
 import { useState } from "react";
 import { playAutoPiano } from "./playback";
 
-function AiSideBar({ post }) {
+function AiSideBar({ post, notes, setNotes }) {
   const options = [
     { value: "Happy", label: "Happy" },
     { value: "Sad", label: "Sad" },
@@ -37,16 +37,48 @@ function AiSideBar({ post }) {
       selectedOptions.map((option) => option.value),
       music
     );
-    const res = await post(details, [...selectedGenres, ...selectedOptions], music);
+    const res = await post(
+      details,
+      [...selectedGenres, ...selectedOptions],
+      JSON.stringify(
+        notes?.map((note) => {
+          return {
+            midi: note.pitch,
+            start: note.start,
+            duration: note.duration,
+          };
+        })
+      )
+    );
     setResponse(res);
     let mus = JSON.parse(res);
     let musx = JSON.parse(mus);
     playAutoPiano(musx);
+    setNotes((notes) => [
+      ...notes,
+      ...musx.map((m) => {
+        console.log(m);
+        return {
+          duration: m.duration,
+          id: Math.floor(Math.random() * 10000000),
+          pitch: m.name,
+          start: m.start,
+          selected: false,
+        };
+      }),
+    ]);
+    setNotes((notes) => {
+      console.log(notes);
+      return notes;
+    });
   }
 
   return (
     <>
-      <form onSubmit={(e) => handleOnAISubmit(e)}>
+      <form
+        onSubmit={(e) => handleOnAISubmit(e)}
+        className=" absolute top-[200px]"
+      >
         <div>
           <p>Pick a mood!</p>
           <MultiSelect

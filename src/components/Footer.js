@@ -3,10 +3,9 @@ import { useState } from "react";
 import Export from "./export";
 import PropertyModal from "./property-modal";
 import propertyButton from "./propertyButton";
+import { playAutoPiano } from "./playback";
 
-
-
-export default function Footer({ tempo, setTempo, volume, setVolume }) {
+export default function Footer({ tempo, setTempo, volume, setVolume, notes }) {
   return (
     <div className="flex items-center justify-between bg-gray-700 p-4 text-white">
       {/* Left Controls */}
@@ -17,7 +16,33 @@ export default function Footer({ tempo, setTempo, volume, setVolume }) {
           button
           altText="Play"
           label="Play"
-          onClick={() => console.log("Play button clicked")}
+          onClick={() => {
+            console.log(notes);
+            playAutoPiano(
+              notes.map((note) => {
+                return {
+                  midi: note.pitch,
+                  start: note.start,
+                  duration: note.duration,
+                };
+              })
+            );
+            //             duration
+            // :
+            // 3
+            // id
+            // :
+            // 1726388927634
+            // pitch
+            // :
+            // 120
+            // selected
+            // :
+            // true
+            // start
+            // :
+            // 4
+          }}
           customStyle={{
             background: "#60A5FA",
             border: "none",
@@ -38,12 +63,9 @@ export default function Footer({ tempo, setTempo, volume, setVolume }) {
           altText="Property"
           label="Property"
           onClick={() => console.log("Property button clicked")}
-          
         />
 
         <PropertyModal />
-
-      
       </div>
 
       {/* Tempo and Volume Controls */}
