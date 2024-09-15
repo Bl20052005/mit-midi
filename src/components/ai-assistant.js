@@ -21,6 +21,7 @@ function AiSideBar({ post, notes, setNotes }) {
     { value: "R&B", label: "R&B" },
     { value: "Lofi", label: "Lofi" },
     { value: "Jazz", label: "Jazz" },
+    { value: "Electronica", label: "Electronica" },
   ];
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [selectedGenres, setSelectedGenres] = useState([]);
