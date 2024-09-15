@@ -125,7 +125,17 @@ export default function Footer({ tempo, setTempo, volume, setVolume, notes }) {
           iconSrc="/assets/icons/export.png"
           altText="Export"
           label="Export"
-          onClick={() => Export([])}
+          onClick={() =>
+            Export(
+              notes.map((note) => {
+                return {
+                  midi: note.pitch,
+                  start: note.start,
+                  duration: note.duration,
+                };
+              })
+            )
+          }
         />
       </div>
     </div>

@@ -29,7 +29,7 @@ export default function Home() {
     <div className="flex flex-col h-screen w-screen bg-gray-300">
       <Header />
       <AssistantServer notes={notes} setNotes={setNotes} />
-      <SynthPiano />
+      <SynthPiano notes={notes} setNotes={setNotes}/>
       <AIChat notes={notes} />
       <InstrumentsDropdown />
       <button

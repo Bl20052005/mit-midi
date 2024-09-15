@@ -26,7 +26,7 @@ export const playAutoPiano = (midiData) => {
   // synth.triggerAttackRelease("G4", "8n", now + 1.0);
 };
 
-export default function SynthPiano() {
+export default function SynthPiano({notes, setNotes}) {
   const synth = useRef(null);
   const [midiData, setMidiData] = useState(null);
 
@@ -57,7 +57,7 @@ export default function SynthPiano() {
 
   return (
     <div>
-      <UploadMidiFile midiData={midiData} setMidiData={setMidiData} />
+      <UploadMidiFile midiData={midiData} setMidiData={setMidiData} setNotes={setNotes} />
       <button onClick={() => Tone.start().then(playPiano)}>Play Piano</button>
       <button
         onClick={() => {
