@@ -31,7 +31,7 @@ export default function Home() {
       <AssistantServer notes={notes} setNotes={setNotes} />
       <SynthPiano notes={notes} setNotes={setNotes}/>
       <AIChat notes={notes} />
-      <InstrumentsDropdown />
+      {/* <InstrumentsDropdown /> */}
       <button
         onClick={() =>
           MidiJsonEdit(
