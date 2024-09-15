@@ -3,22 +3,34 @@
 import { IoMdSend } from "react-icons/io";
 import MultiSelect from "./multi-select";
 import { useState } from "react";
+import { playAutoPiano } from "./playback";
 
 function AiSideBar({ post }) {
   const options = [
-    { value: "javascript", label: "JavaScript" },
-    { value: "react", label: "React" },
-    { value: "css", label: "CSS" },
-    { value: "html", label: "HTML" },
+    { value: "Happy", label: "Happy" },
+    { value: "Sad", label: "Sad" },
+    { value: "Surprised", label: "Surprised" },
+    { value: "Angry", label: "Angry" },
+    { value: "Calming", label: "Calming" },
+    { value: "Moody", label: "Moody" },
   ];
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [details, setDetails] = useState("");
   const [response, setResponse] = useState("");
+  const [music, setMusic] = useState("");
 
   async function handleOnAISubmit(e) {
     e.preventDefault();
-    const res = await post(details);
+    console.log(
+      details,
+      selectedOptions.map((option) => option.value),
+      music
+    );
+    const res = await post(details, selectedOptions, music);
     setResponse(res);
+    let mus = JSON.parse(res);
+    let musx = JSON.parse(mus)
+    playAutoPiano(musx);
   }
 
   return (

@@ -5,11 +5,11 @@ export async function POST(request) {
   const BASETEN_API_KEY = "YMKFudUr.FcjOTi13DlaR3ZtCbBIumoXeqFJy25yx"; // Paste from Discord
 
   const params = await request.json();
+  console.log("promptttttttttttt", params.prompt);
   const messages = [
     {
       role: "system",
-      content:
-        "You are an expert software developer serving as a mentor at the HackMIT hackathon.",
+      content: params.prompt,
     },
     { role: "user", content: params.prompt },
   ];

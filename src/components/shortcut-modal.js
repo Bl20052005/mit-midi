@@ -69,7 +69,7 @@ const ShortcutModal = ({ children }) => {
         <Box sx={style} style={{ backgroundColor: "#E2E8F0" }}>
           <div className="h-full w-[90%] flex flex-col gap-3">
             {Object.keys(bindings).map((item, i) => (
-              <div className="flex justify-center w-full">
+              <div key={item + i} className="flex justify-center w-full">
                 <div className="w-[50%] text-center" key={item + i}>
                   {item}
                 </div>
